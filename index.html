@@ -1,29 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>rock-paper-scissors</title>
 </head>
+
 <body>
 
     <script>
 
-        
-        function getComputerChoice(){
-            const compChoices = ["Rock" , "paper", "Scissors"];
+
+        function getComputerChoice() {
+            const compChoices = ["rock", "paper", "scissors"];
             let randomChoice = Math.floor(Math.random() * 3);
-            console.log(compChoices[randomChoice])
+            console.log(compChoices)
             return (compChoices[randomChoice]);
         };
 
-        getComputerChoice()
+
+
+        function getHumanChoice() {
+
+
+
+            let humanChoice = prompt("What's your choice? Rock| Paper| Scissors").toLowerCase();
+            console.log(humanChoice)
+
+            while (humanChoice != "rock" && humanChoice != "paper" && humanChoice != "scissors") {
+                humanChoice = prompt("youe choice is wrong, Please chice between Rock | paper| scissors").toLowerCase();
+                console.log(humanChoice)
+            }
+
+            return (humanChoice)
+        }
+
+
+        getHumanChoice()
+
+
 
 
 
 
 
     </script>
-    
+
 </body>
+
 </html>
