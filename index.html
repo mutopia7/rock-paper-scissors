@@ -21,15 +21,10 @@
 
 
         function getHumanChoice() {
-
-
-
-            let humanChoice = prompt("What's your choice? Rock| Paper| Scissors").toLowerCase();
-            console.log(humanChoice)
+            let humanChoice = prompt("What's your choice? Rock| Paper| Scissors").toLowerCase();      
 
             while (humanChoice != "rock" && humanChoice != "paper" && humanChoice != "scissors") {
                 humanChoice = prompt("youe choice is wrong, Please chice between Rock | paper| scissors").toLowerCase();
-                console.log(humanChoice)
             }
 
             return (humanChoice)
@@ -70,12 +65,25 @@
             }
         }
 
-        playRound(getHumanChoice(), getComputerChoice())
+        
 
-        console.log(humanScore)
-        console.log(computerScore)
+        function playGame(){
+            for (let i = 1; i <= 5; i++){
+                playRound(getHumanChoice(), getComputerChoice());
+                console.log(`round: ${i}`)
+                console.log(`your score: ${humanScore}`);
+                console.log(`computer score: ${computerScore}`);
+            }
+            result()
+        }
 
+        function result(){
+            if (computerScore >= humanScore) {console.log("The winner is the computer")}
+            else if(humanScore >= computerScore) {console.log("The winner is You.")}
+            else( console.log("The resualt is draw."))
+        }
 
+        playGame()
 
 
 
