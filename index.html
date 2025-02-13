@@ -15,7 +15,6 @@
         function getComputerChoice() {
             const compChoices = ["rock", "paper", "scissors"];
             let randomChoice = Math.floor(Math.random() * 3);
-            console.log(compChoices)
             return (compChoices[randomChoice]);
         };
 
@@ -39,8 +38,42 @@
         let humanScore = 0
         let computerScore = 0
 
+        function playRound(humanChoice, computerChoices) {
+            console.log(`human choice: ${humanChoice} , computer choice: ${computerChoices}`)
+            switch (humanChoice + "|" + computerChoices) {
+                case "rock|scissors":
+                    console.log(`You win! ${humanChoice} beats ${computerChoices}`);
+                    humanScore += 1;
+                    break;
+                case "scissors|rock":
+                    console.log(`You lose! ${computerChoices} beats ${humanChoice}`);
+                    computerScore += 1;
+                    break;
+                case "paper|scissors":
+                    console.log(`You lose! ${computerChoices} beats ${humanChoice}`);
+                    computerScore += 1;
+                    break;
+                case "scissors|paper":
+                    console.log(`You win! ${humanChoice} beats ${computerChoices}`);
+                    humanScore += 1;
+                    break;
+                case "paper|rock":
+                    console.log(`You win! ${humanChoice} beats ${computerChoices}`);
+                    humanScore += 1;
+                    break;
+                case "rock|paper":
+                    console.log(`You lose! ${computerChoices} beats ${humanChoice}`);
+                    computerScore += 1;
+                    break;
+                default:
+                    console.log(`Draw! ${humanChoice} equals ${computerChoices}`)
+            }
+        }
 
-        getHumanChoice()
+        playRound(getHumanChoice(), getComputerChoice())
+
+        console.log(humanScore)
+        console.log(computerScore)
 
 
 
